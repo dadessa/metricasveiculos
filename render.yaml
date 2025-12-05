@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: dashboard-veiculos-alagoas
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd src && python main.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PORT
+        value: 5000
+    healthCheckPath: /
+    autoDeploy: true
